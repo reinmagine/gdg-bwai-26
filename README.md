@@ -1,6 +1,6 @@
 # GDG Build with AI 2026: Break the Pattern
 
-This repository contains the projects and exercises I built during the GDG Build with AI 2026: Break the Pattern event. This is how I utilized Google Antigravity and its AI agents to accelerate and simplify the development process.
+This repository contains mini projects and exercises I built during the GDG Build with AI 2026: Break the Pattern event. I utilized Google Antigravity and its AI agents to accelerate and simplify the development process.
 
 ## Projects Overview
 
