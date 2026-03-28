@@ -4,14 +4,14 @@ This repository contains mini projects and exercises I built during the GDG Buil
 
 ## Projects Overview
 
-Throughout the event, I worked on several projects to explore the capabilities of AI orchestration. The directories in this repository include:
+Throughout the event, I learned working on several projects to explore the capabilities of AI orchestration. The directories in this repository include:
 
 *   **concierge-app** - An application built using Antigravity agents, demonstrating how to use the Model Context Protocol (MCP) to handle complex tasks.
 *   **dynamic-website** - A technical conference website generated with Python, Flask, HTML, CSS, and JavaScript. It features an event schedule, speaker details, and search functionality.
 *   **productivity-app** - A web application featuring a Pomodoro timer with a clean layout to help with focus and task management.
 *   **unit-tests** - Python scripts demonstrating how to write and run unit tests for an e-commerce order system, covering edge cases and custom errors.
 
-## Event Notes and Learnings
+## Learnings
 
 The event provided a lot of insights into the future of software development, focusing on how AI changes the way we build applications.
 
