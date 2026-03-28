@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <main class="timer-container">
+        <div class="app-header">
+            <img src="timer-icon.png" class="timer-icon" alt="Timer Icon">
+        </div>
+        <header class="mode-selector">
+            <button class="mode-btn active" data-mode="pomodoro">Pomodoro</button>
+            <button class="mode-btn" data-mode="shortBreak">Short Break</button>
+            <button class="mode-btn" data-mode="longBreak">Long Break</button>
+        </header>
+
+        <section class="timer-display">
+            <div class="time" id="time-display">25:00</div>
+            <div class="progress-ring-container">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.1)" stroke-width="8" fill="transparent" r="140" cx="150" cy="150"/>
+                    <circle class="progress-ring__circle" id="progress-circle" stroke="#ffffff" stroke-width="8" fill="transparent" r="140" cx="150" cy="150"/>
+                </svg>
+            </div>
+        </section>
+
+        <section class="controls">
+            <button class="control-btn primary" id="start-btn">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="text" id="start-text">Start</span>
+            </button>
+            <button class="control-btn secondary" id="reset-btn">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 9.9419 4.77665 8.06456 6.0463 6.62121M12 4V1M12 4H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="text">Reset</span>
+            </button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

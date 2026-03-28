@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Cloud Tech Conference 2026</title>
+    <meta name="description" content="1-day technical conference on Google Cloud Technologies">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Google Cloud Tech Conference</h1>
+            <p class="subtitle">Building the Future of Cloud Computing</p>
+            <div class="event-details">
+                <span class="detail-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    {{ date }}
+                </span>
+                <span class="detail-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    {{ location }}
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters-section">
+            <h2>Schedule & Timetable</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="search-title">Search Title</label>
+                    <input type="text" id="search-title" placeholder="e.g. Kubernetes...">
+                </div>
+                <div class="filter-group">
+                    <label for="search-speaker">Search Speaker</label>
+                    <input type="text" id="search-speaker" placeholder="e.g. Sundar...">
+                </div>
+                <div class="filter-group">
+                    <label for="search-category">Category</label>
+                    <select id="search-category">
+                        <option value="">All Categories</option>
+                        <option value="keynote">Keynote</option>
+                        <option value="infrastructure">Infrastructure</option>
+                        <option value="data">Data & AI</option>
+                        <option value="security">Security</option>
+                        <option value="networking">Networking</option>
+                        <option value="database">Database</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="schedule">
+            <div class="timeline" id="event-list">
+                {% for event in events %}
+                <div class="event-card {% if event.is_break %}break-card{% endif %}" data-title="{{ event.title | lower }}" data-category="{{ event.category | join(',') | lower }}" data-speakers="{% for speaker in event.speakers %}{{ speaker.first_name | lower }} {{ speaker.last_name | lower }} {% endfor %}">
+                    <div class="event-time">
+                        {{ event.time }}
+                    </div>
+                    <div class="event-content">
+                        {% if not event.is_break %}
+                        <div class="event-categories">
+                            {% for cat in event.category %}
+                            <span class="badge">{{ cat }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="event-categories">
+                            <span class="badge break-badge">Break</span>
+                        </div>
+                        {% endif %}
+                        
+                        <h3 class="event-title">{{ event.title }}</h3>
+                        <p class="event-description">{{ event.description }}</p>
+                        
+                        {% if event.speakers %}
+                        <div class="event-speakers">
+                            <h4>Speakers:</h4>
+                            <ul class="speaker-list">
+                                {% for speaker in event.speakers %}
+                                <li>
+                                    <a href="{{ speaker.linkedin }}" target="_blank" rel="noopener noreferrer" class="speaker-link">
+                                        <div class="speaker-avatar">{{ speaker.first_name[0] }}{{ speaker.last_name[0] }}</div>
+                                        <span>{{ speaker.first_name }} {{ speaker.last_name }}</span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="no-results" id="no-results" style="display: none;">
+                    <p>No talks found matching your search criteria.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Google Cloud Technologies Conference. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
